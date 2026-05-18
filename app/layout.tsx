@@ -19,11 +19,11 @@ export const metadata: Metadata = {
         media: "(prefers-color-scheme: light)",
       },
       {
-        url: withBasePath("/icon-dark-32x32.png"),
+        url: withBasePath("/icon_web.png"),
         media: "(prefers-color-scheme: dark)",
       },
       {
-        url: withBasePath("/icon.svg"),
+        url: withBasePath("/icon.png"),
         type: "image/svg+xml",
       },
     ],
