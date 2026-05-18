@@ -591,7 +591,11 @@ export default function ProjectsPage() {
         <div className="mt-4 h-px w-full bg-white/10" />
 
         {projects.map((project, index) => (
-          <ProjectShowcase key={project.title} project={project} index={index} />
+          <ProjectShowcase
+            key={project.title}
+            project={project}
+            index={index}
+          />
         ))}
       </section>
     </main>
