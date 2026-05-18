@@ -116,7 +116,10 @@ function ExperienceCard({
         </div>
 
         <div className="flex items-center gap-2 text-sm text-emerald-100/80">
-          <CalendarDays className="h-4 w-4 text-emerald-300" strokeWidth={1.5} />
+          <CalendarDays
+            className="h-4 w-4 text-emerald-300"
+            strokeWidth={1.5}
+          />
           {experience.period}
         </div>
 
@@ -218,7 +221,7 @@ export default function ExperiencePage() {
                 <ArrowUpRight className="h-4 w-4" />
               </Link>
               <a
-                href={withBasePath("/NGUYEN-THI-NGOC-UYEN-TopCV.pdf")}
+                href={withBasePath("/NGUYEN-THI-NGOC-UYEN-CV.pdf")}
                 download
                 className="inline-flex items-center gap-2 rounded-full border border-emerald-300/20 bg-emerald-300/10 px-5 py-3 text-sm text-emerald-50 transition hover:bg-emerald-300/15"
               >

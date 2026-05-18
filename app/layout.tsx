@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: withBasePath("/icon-light-32x32.png"),
+        url: withBasePath("/icon_web.png"),
         media: "(prefers-color-scheme: light)",
       },
       {
