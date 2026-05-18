@@ -1,0 +1,105 @@
+Coop Food. 
+Giới thiệu,. 
+
+The Co.op Food App is an internal employee attendance management system for retail stores. It enables staff to check in and check out at store locations, records attendance history, and verifies GPS coordinates during check-in. Administrators can view detailed reports by store and by individual employee.
+Vai trò của bản thân: 
+﻿﻿I developed the entire mobile Ul and actively participated in discussing and proposing business solutions for the project.
+﻿﻿Implemented GPS-based attendance verification system for retail employees.
+﻿﻿Developed real-time check-in/check-out workflows with location validation.
+﻿﻿Participated in business analysis and proposed operational improvements for attendance tracking.
+Technologies Used
+Mobile Application: React Native
+Push Notification Service: OneSignal for real-time server notifications and attendance updates
+Backend System: .NET Framework Web API
+GPS & Location Services for attendance validation
+RESTful API integration between mobile app and backend system
+Main Features
+Employee check-in/check-out system using real-time GPS location verification
+Validate whether employees are within the allowed store check-in area before attendance submission
+Store and manage attendance history, including check-in/check-out timestamps and locations
+Real-time attendance workflow synchronization between mobile app and server
+Push notifications for attendance-related updates and announcements
+Admin dashboard/reporting features:
+View attendance reports by store
+Track daily employee check-in/check-out statistics
+Monitor the number of employees present for each store and date
+Business-oriented attendance management designed for retail store operations
+Khách hàng là chuỗi bán hàng coop food; coop smile. có hơn  5 nghìn lượt tải trên CHPlay. 
+
+App Loyaty. Chăm sóc khách hàng. 
+
+
+
+
+
+The Loyalty Booking App is a customer engagement and hotel booking platform that enables users to
+
+
+
+
+earn and track loyalty points, redeem rewards and promotions, view campaigns, and book hotel rooms. I
+
+
+
+
+developed the entire mobile Ul, participated in building backend APls, and contributed to database
+
+
+
+
+design. The project helps improve customer retention and enhances the overall booking experience.
+
+
+Technologies Used
+Mobile Application: React Native
+Push Notification Service: OneSignal for real-time promotions, booking updates, and loyalty notifications
+Backend System: .NET Framework Web API
+
+GPS & Location Services for detecting nearby hotels based on user location
+RESTful API integration for booking, loyalty management, and e-commerce features
+Backend API development and database design participation
+Main Features
+Loyalty points tracking and reward management system
+Redeem loyalty points for gifts, promotions, and customer benefits
+Hotel search and booking functionality with real-time room availability and pricing
+Display nearby hotels using user GPS location
+View hotel campaigns, promotions, and news categories
+In-app supermarket shopping and product purchasing features
+User ranking and membership tier system
+Display customer privileges and benefits based on loyalty level
+Real-time push notifications for campaigns, bookings, promotions, and reward updates
+Seamless mobile booking experience focused on customer engagement and retention
+In addition to the mobile application, the project also includes a web-based administration and customer support portal that enables internal teams to manage and monitor application content and customer engagement activities.
+Web Admin Features
+Manage push notifications and promotional campaigns
+Configure news, banners, images, and in-app content
+Manage loyalty rewards, gifts, and redemption programs
+Configure membership tiers and customer benefits
+Customer support and operational monitoring tools
+Track user activities and engagement statistics
+Technologies Used (Web Admin System)
+Web Frontend: React
+Backend APIs: .NET Framework
+Clients & Business Partners
+TTC Hospitality
+Hinode Mall
+Terracotta Resort
+
+WEALLNET Application
+WEALLNET is an all-in-one social networking and entertainment platform in Vietnam that combines social interaction, digital content, entertainment, and e-commerce services into a single ecosystem. The application allows users to stay updated with news, interact with communities and content creators, shop online, and access various digital services seamlessly within one platform.
+I participated in developing and improving the mobile application experience, contributing to scalable application architecture and performance optimization to support a large number of active users and multimedia content.
+Technologies Used
+Mobile Application: Flutter
+Backend System: .NET Framework Web API
+Caching & Performance Optimization: Redis
+RESTful API integration for social networking, news, entertainment, and e-commerce services
+Main Features
+Social networking platform with user interaction and community engagement
+Real-time messaging and communication features
+News and entertainment system including articles, videos, and music content
+Follow and interact with content creators and influencers
+Integrated online shopping and promotional campaigns
+Multi-service super app experience within a single platform
+Content discovery and recommendation system
+Performance optimization using Redis caching for faster content loading and improved scalability
+Agency and branding support platform for digital marketing and media campaigns
