@@ -9,6 +9,7 @@ import {
   Sparkle,
 } from "lucide-react";
 import { useEffect, useState } from "react";
+import { withBasePath } from "@/lib/site-path";
 
 type Project = {
   title: string;
@@ -258,7 +259,7 @@ function ProjectSlider({
               transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             >
               <Image
-                src={slide.src}
+                src={withBasePath(slide.src)}
                 alt={`${title} screen ${slide.index + 1}`}
                 fill
                 sizes="(min-width: 1024px) 250px, 45vw"
@@ -345,7 +346,7 @@ function WebAdminSlider({
               transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             >
               <Image
-                src={slide.src}
+                src={withBasePath(slide.src)}
                 alt={`${title} web screen ${slide.index + 1}`}
                 fill
                 sizes="(min-width: 1024px) 560px, 86vw"
@@ -457,7 +458,7 @@ function CustomerLogos({
               className="relative flex h-14 w-28 items-center justify-center overflow-hidden rounded-xl border border-white/10 bg-white p-3"
             >
               <Image
-                src={customer.logo}
+                src={withBasePath(customer.logo)}
                 alt={`${customer.name} logo`}
                 fill
                 sizes="112px"

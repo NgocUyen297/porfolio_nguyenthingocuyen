@@ -3,30 +3,31 @@ import { Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import PortfolioNavbar from "@/components/nav/PortfolioNavbar";
+import { withBasePath } from "@/lib/site-path";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata: Metadata = {
-  title: "Max Reed - Creative Director & Designer",
+  title: "Nguyễn Thị Ngọc Uyên - Fullstack Developer",
   description:
     "A London-based independent creator shaping sharp visual systems, web-ready products, and story-first campaigns.",
   generator: "v0.app",
   icons: {
     icon: [
       {
-        url: "/icon-light-32x32.png",
+        url: withBasePath("/icon-light-32x32.png"),
         media: "(prefers-color-scheme: light)",
       },
       {
-        url: "/icon-dark-32x32.png",
+        url: withBasePath("/icon-dark-32x32.png"),
         media: "(prefers-color-scheme: dark)",
       },
       {
-        url: "/icon.svg",
+        url: withBasePath("/icon.svg"),
         type: "image/svg+xml",
       },
     ],
-    apple: "/apple-icon.png",
+    apple: withBasePath("/icon_web.png"),
   },
 };
 

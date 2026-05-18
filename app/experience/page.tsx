@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, CalendarDays, Download, Sparkle } from "lucide-react";
 import { motion } from "framer-motion";
+import { withBasePath } from "@/lib/site-path";
 
 type Experience = {
   period: string;
@@ -106,7 +107,7 @@ function ExperienceCard({
       <div className="space-y-5">
         <div className="relative flex h-20 w-40 items-center justify-center overflow-hidden rounded-xl border border-white/10 bg-white p-4">
           <Image
-            src={experience.logo}
+            src={withBasePath(experience.logo)}
             alt={`${experience.company} logo`}
             fill
             sizes="160px"
@@ -217,7 +218,7 @@ export default function ExperiencePage() {
                 <ArrowUpRight className="h-4 w-4" />
               </Link>
               <a
-                href="/NGUYEN-THI-NGOC-UYEN-TopCV.pdf"
+                href={withBasePath("/NGUYEN-THI-NGOC-UYEN-TopCV.pdf")}
                 download
                 className="inline-flex items-center gap-2 rounded-full border border-emerald-300/20 bg-emerald-300/10 px-5 py-3 text-sm text-emerald-50 transition hover:bg-emerald-300/15"
               >

@@ -25,6 +25,7 @@ import {
   BadgeCheck,
 } from "lucide-react";
 import Image from "next/image";
+import { withBasePath } from "@/lib/site-path";
 function SectionLabel({
   children,
   justify = "center",
@@ -133,7 +134,7 @@ export default function PortfolioFeatures() {
         <div className="relative rounded-2xl bg-black overflow-hidden flex flex-col min-h-[320px] md:min-h-0">
           <div className="absolute inset-0">
             <Image
-              src={"avatar.jpg"}
+              src={withBasePath("/avatar.jpg")}
               alt={"avatar"}
               fill
               priority
@@ -271,7 +272,7 @@ export default function PortfolioFeatures() {
                           "
                       >
                         <Image
-                          src={`${image}`}
+                          src={withBasePath(`/${image}`)}
                           alt={image}
                           width={36}
                           height={36}
@@ -309,7 +310,7 @@ export default function PortfolioFeatures() {
                           "
                         >
                           <Image
-                            src={`${image}`}
+                            src={withBasePath(`/${image}`)}
                             alt={image}
                             width={36}
                             height={36}
@@ -377,7 +378,7 @@ export default function PortfolioFeatures() {
                 "
                 >
                   <Image
-                    src={`${Icon.image}`}
+                    src={withBasePath(`/${Icon.image}`)}
                     alt={Icon.alt}
                     width={36}
                     height={36}
@@ -396,7 +397,7 @@ export default function PortfolioFeatures() {
               ))}
             </div>
             <a
-              href="NGUYEN-THI-NGOC-UYEN-TopCV.pdf"
+              href={withBasePath("/NGUYEN-THI-NGOC-UYEN-TopCV.pdf")}
               download
               className="mt-6 flex w-full items-center justify-center gap-2 rounded-2xl border border-white/10bg-white/[0.03] py-3 text-smtransition-all duration-300hover:bg-white/[0.06]"
             >

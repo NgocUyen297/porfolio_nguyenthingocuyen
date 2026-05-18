@@ -12,6 +12,7 @@ import {
   Sparkle,
   Wrench,
 } from "lucide-react";
+import { withBasePath } from "@/lib/site-path";
 
 type SkillGroup = {
   title: string;
@@ -199,7 +200,7 @@ export default function SkillsPage() {
                 className="mr-4 flex h-20 w-20 shrink-0 items-center justify-center rounded-2xl border border-white/10 bg-black/25"
               >
                 <Image
-                  src={logo.src}
+                  src={withBasePath(logo.src)}
                   alt={logo.name}
                   width={42}
                   height={42}

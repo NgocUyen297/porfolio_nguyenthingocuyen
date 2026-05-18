@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { withBasePath } from "@/lib/site-path";
 import {
   Download,
   Instagram,
@@ -100,7 +101,7 @@ export default function AboutMePage() {
           {/* Image */}
           <div className="relative h-[620px] w-[420px]">
             <Image
-              src={"aboutme.png"}
+              src={withBasePath("/aboutme.png")}
               alt="portfolio"
               fill
               priority
