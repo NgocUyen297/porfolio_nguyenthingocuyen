@@ -397,7 +397,7 @@ export default function PortfolioFeatures() {
               ))}
             </div>
             <a
-              href={withBasePath("/NGUYEN-THI-NGOC-UYEN-TopCV.pdf")}
+              href={withBasePath("/NGUYEN-THI-NGOC-UYEN-CV.pdf")}
               download
               className="mt-6 flex w-full items-center justify-center gap-2 rounded-2xl border border-white/10bg-white/[0.03] py-3 text-smtransition-all duration-300hover:bg-white/[0.06]"
             >
