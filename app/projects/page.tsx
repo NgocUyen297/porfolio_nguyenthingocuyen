@@ -58,12 +58,15 @@ const projects: Project[] = [
       "Real-time notification updates",
     ],
     images: [
-      "/projects/coo_food/8a0c0b72-d43e-46bc-8c18-7c1fd589e2d5.jpeg",
-      "/projects/coo_food/c225e947-dcf6-41c8-af24-f39598ed5920.jpeg",
-      "/projects/coo_food/20a5ba28-efca-4865-bd0a-6a5e347d973a.jpeg",
-      "/projects/coo_food/fcbffe9a-0a61-477d-9938-821ad2f9f68a.jpeg",
-      "/projects/coo_food/9a06b7dc-9df0-439c-a441-e58a3e63603a.jpeg",
-      "/projects/coo_food/058af49d-6bda-4293-8da3-21eea6085f8d.jpeg",
+      "/projects/coo_food/01.png",
+      "/projects/coo_food/02.png",
+      "/projects/coo_food/03.png",
+      "/projects/coo_food/05.png",
+      "/projects/coo_food/06.png",
+      "/projects/coo_food/07.jpeg",
+      "/projects/coo_food/08.jpeg",
+      "/projects/coo_food/09.jpeg",
+      "/projects/coo_food/10.jpeg",
     ],
     customers: [
       {
@@ -72,7 +75,7 @@ const projects: Project[] = [
       },
       {
         name: "Co.op Smile",
-        logo: "/projects/Logo_customer/coop_smile_logo.jpg",
+        logo: "/projects/Logo_customer/coop-smile-logo.webp",
       },
     ],
     highlight: "5K+ downloads on Google Play",
@@ -144,14 +147,16 @@ const projects: Project[] = [
         "/projects/loyaty/web/Screenshot%202026-05-18%20at%2011.54.59.png",
       ],
     },
+    highlight:
+      "This product is currently under internal development and is available exclusively to partner companies for testing and evaluation purposes.",
     customers: [
       {
         name: "TTC Hospitality",
-        logo: "/projects/Logo_customer/TTC_logo.jpg",
+        logo: "/projects/Logo_customer/ttc-logo.png",
       },
       {
         name: "Hinode Mall",
-        logo: "/projects/Logo_customer/hinode_logo.png",
+        logo: "/projects/Logo_customer/logo-hinode-royal-park.png",
       },
       {
         name: "Terracotta Resort",
@@ -165,7 +170,8 @@ const projects: Project[] = [
     description:
       "An all-in-one social networking and entertainment platform in Vietnam, combining social interaction, digital content, e-commerce, news, music, videos, and digital services in one ecosystem.",
     role: [
-      "Participated in mobile app development and user experience improvements.",
+      "Maintained and xed the push notication system integrated with Firebase.",
+      "Developed notication features and real-time messaging functionalities for the application.",
       "Contributed to scalable application architecture and performance optimization.",
       "Improved loading performance for multimedia and high-traffic content flows.",
     ],
@@ -188,6 +194,7 @@ const projects: Project[] = [
       "/projects/wealnet/77eb4a7e-85a9-462d-aa2b-ac27d0c86470.jpeg",
       "/projects/wealnet/18f1a491-2e04-4916-a83a-de3538f72424.jpeg",
     ],
+    highlight: "10K+ downloads on Google Play",
   },
 ];
 
@@ -447,25 +454,30 @@ function CustomerLogos({
   return (
     <div className="space-y-4">
       {highlight && (
-        <p className="text-sm font-medium text-white/78">{highlight}</p>
+        <p className="text-sm font-medium text-white/78 max-w-150">
+          {highlight}
+        </p>
       )}
 
       {customers && (
-        <div className="flex flex-wrap items-center gap-3">
-          {customers.map((customer) => (
-            <div
-              key={customer.name}
-              className="relative flex h-14 w-28 items-center justify-center overflow-hidden rounded-xl border border-white/10 bg-white p-3"
-            >
-              <Image
-                src={withBasePath(customer.logo)}
-                alt={`${customer.name} logo`}
-                fill
-                sizes="112px"
-                className="object-contain p-2"
-              />
-            </div>
-          ))}
+        <div>
+          <div className="flex flex-wrap items-center gap-3">
+            <p className="text-sm font-medium text-white/78">Clients: </p>
+            {customers.map((customer) => (
+              <div
+                key={customer.name}
+                className="relative flex h-20 w-28 items-center justify-center overflow-hidden bg-white  rounded-xl "
+              >
+                <Image
+                  src={withBasePath(customer.logo)}
+                  alt={`${customer.name} logo`}
+                  fill
+                  sizes="112px"
+                  className="object-contain p-2 "
+                />
+              </div>
+            ))}
+          </div>
         </div>
       )}
     </div>
