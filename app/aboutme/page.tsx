@@ -11,6 +11,7 @@ import {
   ArrowUpRight,
 } from "lucide-react";
 import { useLanguage } from "@/lib/language-context";
+import { withBasePath } from "@/lib/site-path";
 
 const aboutCopy = {
   en: {
@@ -85,9 +86,9 @@ const aboutCopy = {
         <span className="text-white font-medium underline decoration-white/30 underline-offset-4">
           React Native, Flutter, Next.js, .NET
         </span>{" "}
-        và <span className="text-white font-semibold">SQL Server</span>, tôi
-        tập trung xây dựng ứng dụng có khả năng mở rộng, dựa trên hệ thống thời
-        gian thực, kiến trúc module và tích hợp native tùy chỉnh (Swift/Kotlin).
+        và <span className="text-white font-semibold">SQL Server</span>, tôi tập
+        trung xây dựng ứng dụng có khả năng mở rộng, dựa trên hệ thống thời gian
+        thực, kiến trúc module và tích hợp native tùy chỉnh (Swift/Kotlin).
       </>,
       <>
         Trong hơn <span className="text-white font-semibold">3 năm</span>, tôi
@@ -267,7 +268,7 @@ export default function AboutMe() {
                 <div className="relative shrink-0">
                   <div className="absolute inset-0 bg-white/20 rounded-full blur-sm opacity-40" />
                   <img
-                    src="/cv_avatar.jpg"
+                    src={withBasePath("/cv_avatar.jpg")}
                     alt="Avatar"
                     className="relative w-20 h-20 rounded-full object-cover border border-white/30"
                   />
