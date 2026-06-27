@@ -50,6 +50,7 @@ const projects: Project[] = [
       "OneSignal",
       "GPS Services",
       "RESTful API",
+      "Vision Camera",
     ],
     features: [
       "Location-based check-in/check-out",
@@ -96,6 +97,10 @@ const projects: Project[] = [
       ".NET Web API",
       "OneSignal",
       "GPS Services",
+      "Vision Camera",
+      "VNPAY payment gateway",
+      "QR code scanning",
+      "Social Login (Google & Facebook)",
     ],
     features: [
       "Reward and loyalty point management",
@@ -170,10 +175,11 @@ const projects: Project[] = [
     description:
       "An all-in-one social networking and entertainment platform in Vietnam, combining social interaction, digital content, e-commerce, news, music, videos, and digital services in one ecosystem.",
     role: [
-      "Maintained and xed the push notication system integrated with Firebase.",
-      "Developed notication features and real-time messaging functionalities for the application.",
+      "Maintained and enhanced the Firebase-integrated push notification system.",
+      "Developed real-time messaging functionalities for the application.",
       "Contributed to scalable application architecture and performance optimization.",
       "Improved loading performance for multimedia and high-traffic content flows.",
+      "Collaborated with cross-functional teams to troubleshoot system issues and deliver continuous product improvements.",
     ],
     technologies: [
       "Flutter",
@@ -186,7 +192,6 @@ const projects: Project[] = [
       "Social networking and user interaction",
       "Messaging and communication features",
       "News, music, video, and content discovery",
-      "Online shopping and promotional campaigns",
     ],
     images: [
       "/projects/wealnet/15002831-4829-48e0-8b43-3c829665e473.jpeg",
@@ -592,16 +597,14 @@ export default function ProjectsPage() {
   return (
     <main className="min-h-screen bg-[#0a0a0a] text-white">
       <section className="mx-auto w-full max-w-7xl px-4 py-8 sm:px-6 lg:px-10">
-        <div className="mb-3 pt-6">
+        {/* <div className="mb-3 pt-6">
           <SectionLabel>Portfolio Projects</SectionLabel>
-        </div>
+        </div> */}
         <h1 className="max-w-4xl text-[38px] font-normal leading-tight tracking-tight text-white sm:text-6xl">
           Mobile and web products built across retail, hospitality, loyalty, and
           social platforms.
         </h1>
-
         <div className="mt-4 h-px w-full bg-white/10" />
-
         {projects.map((project, index) => (
           <ProjectShowcase
             key={project.title}

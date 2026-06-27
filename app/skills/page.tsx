@@ -27,7 +27,7 @@ const skillGroups: SkillGroup[] = [
     description:
       "Production mobile apps for loyalty, booking, retail attendance, social networking, and digital services.",
     icon: Smartphone,
-    skills: ["React Native", "Flutter", "Kotlin", "Swift", "Java"],
+    skills: ["React Native", "Flutter", "Kotlin", "Swift"],
   },
   {
     title: "Frontend",
@@ -41,7 +41,7 @@ const skillGroups: SkillGroup[] = [
     description:
       "REST API integration, backend participation, server-side workflows, and business logic support.",
     icon: ServerCog,
-    skills: ["C#", ".NET Framework", ".NET Core", ".NET MVC", "RESTful API"],
+    skills: ["C#", ".NET Framework", ".NET Core", "RESTful API"],
   },
   {
     title: "Database",
@@ -92,7 +92,7 @@ const techLogos = [
   { name: "Kotlin", src: "/kotlin-logo.png" },
   { name: "Swift", src: "/swift-logo.png" },
   { name: "JavaScript", src: "/js-logo.png" },
-  { name: ".NET", src: "/net-logo.png" },
+  // { name: ".NET", src: "/net-logo.png" },
   { name: "SQL", src: "/sql-logo.png" },
   { name: "Docker", src: "/docker-logo.png" },
   { name: "Git", src: "/git-logo.png" },
@@ -163,12 +163,10 @@ export default function SkillsPage() {
       <section className="mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 lg:px-10">
         <div className="grid gap-10 py-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
           <div className="space-y-5">
-            <SectionLabel>Technical Skills</SectionLabel>
             <h1 className="max-w-4xl text-[38px] font-normal leading-tight tracking-tight text-white sm:text-6xl">
-              A mobile-focused fullstack toolkit for real product delivery.
+              Building secure, reliable, and scalable mobile applications.
             </h1>
           </div>
-
           <div className="space-y-5">
             <p className="text-[15px] leading-7 text-white/66">
               My core strength is connecting polished mobile interfaces with
