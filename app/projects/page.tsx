@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import { useEffect, useState } from "react";
 import { withBasePath } from "@/lib/site-path";
+import { useLanguage } from "@/lib/language-context";
 
 type Project = {
   title: string;
@@ -203,6 +204,100 @@ const projects: Project[] = [
   },
 ];
 
+const projectsVi: Project[] = [
+  {
+    ...projects[0],
+    category: "Quản lý chấm công nhân viên",
+    description:
+      "Hệ thống quản lý chấm công nội bộ cho chuỗi cửa hàng bán lẻ. Nhân viên có thể check-in/check-out tại địa điểm cửa hàng, trong khi quản trị viên theo dõi lịch sử chấm công, xác thực GPS và báo cáo chi tiết theo cửa hàng hoặc nhân viên.",
+    role: [
+      "Phát triển toàn bộ giao diện mobile bằng React Native.",
+      "Triển khai xác thực chấm công bằng GPS và luồng check-in/check-out thời gian thực.",
+      "Tham gia phân tích nghiệp vụ và đề xuất cải tiến quy trình chấm công tại cửa hàng.",
+    ],
+    features: [
+      "Check-in/check-out theo vị trí",
+      "Lịch sử chấm công và mốc thời gian",
+      "Báo cáo theo cửa hàng và nhân viên",
+      "Cập nhật thông báo thời gian thực",
+    ],
+    highlight: "5K+ lượt tải trên Google Play",
+  },
+  {
+    ...projects[1],
+    category: "Tương tác khách hàng & Đặt phòng khách sạn",
+    description:
+      "Nền tảng tương tác khách hàng và đặt phòng khách sạn, cho phép người dùng theo dõi điểm loyalty, đổi quà, xem chiến dịch, đặt phòng và mua sắm trong app. Dự án cũng bao gồm hệ thống web admin và cổng hỗ trợ khách hàng.",
+    role: [
+      "Phát triển toàn bộ giao diện mobile.",
+      "Tham gia phát triển backend API và thiết kế database.",
+      "Xây dựng luồng loyalty, booking, campaign, rewards và quyền lợi khách hàng.",
+    ],
+    features: [
+      "Quản lý điểm thưởng và loyalty",
+      "Tìm kiếm và đặt phòng khách sạn",
+      "Hạng thành viên và đặc quyền",
+      "Cổng admin quản lý chiến dịch, banner, quà tặng và công cụ hỗ trợ",
+    ],
+    webAdmin: {
+      ...projects[1].webAdmin!,
+      title: "Web Admin & Cổng hỗ trợ khách hàng",
+      description:
+        "Cổng quản trị và hỗ trợ khách hàng trên nền web, giúp đội ngũ nội bộ quản lý nội dung ứng dụng, theo dõi hoạt động tương tác và vận hành chiến dịch loyalty trong một workspace.",
+      features: [
+        "Quản lý push notification và chiến dịch khuyến mãi",
+        "Cấu hình tin tức, banner, hình ảnh và nội dung trong app",
+        "Quản lý quà tặng, điểm thưởng và chương trình đổi quà",
+        "Cấu hình hạng thành viên và quyền lợi khách hàng",
+        "Công cụ hỗ trợ khách hàng và theo dõi vận hành",
+        "Theo dõi hoạt động người dùng và thống kê tương tác",
+      ],
+    },
+    highlight:
+      "Sản phẩm hiện đang phát triển nội bộ và chỉ mở cho các công ty đối tác dùng thử, đánh giá.",
+  },
+  {
+    ...projects[2],
+    category: "Mạng xã hội & Super App giải trí",
+    description:
+      "Nền tảng mạng xã hội và giải trí tất cả trong một tại Việt Nam, kết hợp tương tác xã hội, nội dung số, thương mại điện tử, tin tức, âm nhạc, video và dịch vụ số trong cùng một hệ sinh thái.",
+    role: [
+      "Bảo trì và nâng cấp hệ thống push notification tích hợp Firebase.",
+      "Phát triển chức năng nhắn tin thời gian thực cho ứng dụng.",
+      "Đóng góp vào kiến trúc ứng dụng có khả năng mở rộng và tối ưu hiệu năng.",
+      "Cải thiện tốc độ tải cho multimedia và các luồng nội dung lưu lượng cao.",
+      "Phối hợp với các team liên quan để xử lý lỗi hệ thống và cải tiến sản phẩm liên tục.",
+    ],
+    features: [
+      "Mạng xã hội và tương tác người dùng",
+      "Tính năng nhắn tin và giao tiếp",
+      "Khám phá tin tức, âm nhạc, video và nội dung",
+    ],
+    highlight: "10K+ lượt tải trên Google Play",
+  },
+];
+
+const projectsCopy = {
+  en: {
+    hero:
+      "Mobile and web products built across retail, hospitality, loyalty, and social platforms.",
+    featuredProject: "Featured Project",
+    myRole: "My Role",
+    mainFeatures: "Main Features",
+    clients: "Clients:",
+    webAdmin: "Web Admin",
+  },
+  vi: {
+    hero:
+      "Các sản phẩm mobile và web đã xây dựng trong retail, hospitality, loyalty và social platforms.",
+    featuredProject: "Dự án nổi bật",
+    myRole: "Vai trò của tôi",
+    mainFeatures: "Tính năng chính",
+    clients: "Khách hàng:",
+    webAdmin: "Web Admin",
+  },
+};
+
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex items-center gap-2">
@@ -391,8 +486,10 @@ function WebAdminSlider({
 
 function WebAdminShowcase({
   webAdmin,
+  webAdminLabel,
 }: {
   webAdmin: NonNullable<Project["webAdmin"]>;
+  webAdminLabel: string;
 }) {
   return (
     <motion.section
@@ -405,7 +502,7 @@ function WebAdminShowcase({
       <div className="space-y-5">
         <div className="flex items-center gap-2 text-sm text-white">
           <MonitorCog className="h-4 w-4 text-emerald-300" strokeWidth={1.6} />
-          Web Admin
+          {webAdminLabel}
         </div>
 
         <div className="space-y-3">
@@ -448,9 +545,11 @@ function WebAdminShowcase({
 function CustomerLogos({
   customers,
   highlight,
+  clientsLabel,
 }: {
   customers?: Project["customers"];
   highlight?: string;
+  clientsLabel: string;
 }) {
   if (!customers && !highlight) {
     return null;
@@ -467,7 +566,9 @@ function CustomerLogos({
       {customers && (
         <div>
           <div className="flex flex-wrap items-center gap-3">
-            <p className="text-sm font-medium text-white/78">Clients: </p>
+            <p className="text-sm font-medium text-white/78">
+              {clientsLabel}
+            </p>
             {customers.map((customer) => (
               <div
                 key={customer.name}
@@ -492,9 +593,11 @@ function CustomerLogos({
 function ProjectShowcase({
   project,
   index,
+  copy,
 }: {
   project: Project;
   index: number;
+  copy: (typeof projectsCopy)["en"];
 }) {
   return (
     <motion.article
@@ -505,7 +608,9 @@ function ProjectShowcase({
       className="grid min-h-screen items-center gap-10 py-12 lg:grid-cols-[0.92fr_1.08fr] lg:gap-x-14 lg:gap-y-10 lg:py-18"
     >
       <div className="space-y-7">
-        <SectionLabel>Featured Project 0{index + 1}</SectionLabel>
+        <SectionLabel>
+          {copy.featuredProject} 0{index + 1}
+        </SectionLabel>
 
         <div className="space-y-4">
           <p className="text-sm font-medium text-emerald-200/80">
@@ -526,7 +631,7 @@ function ProjectShowcase({
                 className="h-4 w-4 text-emerald-300"
                 strokeWidth={1.6}
               />
-              My Role
+              {copy.myRole}
             </div>
             <div className="space-y-3">
               {project.role.map((item) => (
@@ -543,7 +648,7 @@ function ProjectShowcase({
                 className="h-4 w-4 text-emerald-300"
                 strokeWidth={1.6}
               />
-              Main Features
+              {copy.mainFeatures}
             </div>
             <div className="space-y-3">
               {project.features.map((item) => (
@@ -570,6 +675,7 @@ function ProjectShowcase({
           <CustomerLogos
             customers={project.customers}
             highlight={project.highlight}
+            clientsLabel={copy.clients}
           />
         )}
       </div>
@@ -582,10 +688,14 @@ function ProjectShowcase({
 
       {project.webAdmin && (
         <div className="space-y-7 lg:col-span-2">
-          <WebAdminShowcase webAdmin={project.webAdmin} />
+          <WebAdminShowcase
+            webAdmin={project.webAdmin}
+            webAdminLabel={copy.webAdmin}
+          />
           <CustomerLogos
             customers={project.customers}
             highlight={project.highlight}
+            clientsLabel={copy.clients}
           />
         </div>
       )}
@@ -594,6 +704,10 @@ function ProjectShowcase({
 }
 
 export default function ProjectsPage() {
+  const { language } = useLanguage();
+  const copy = projectsCopy[language];
+  const localizedProjects = language === "vi" ? projectsVi : projects;
+
   return (
     <main className="min-h-screen bg-[#0a0a0a] text-white">
       <section className="mx-auto w-full max-w-7xl px-4 py-8 sm:px-6 lg:px-10">
@@ -601,15 +715,15 @@ export default function ProjectsPage() {
           <SectionLabel>Portfolio Projects</SectionLabel>
         </div> */}
         <h1 className="max-w-4xl text-[38px] font-normal leading-tight tracking-tight text-white sm:text-6xl">
-          Mobile and web products built across retail, hospitality, loyalty, and
-          social platforms.
+          {copy.hero}
         </h1>
         <div className="mt-4 h-px w-full bg-white/10" />
-        {projects.map((project, index) => (
+        {localizedProjects.map((project, index) => (
           <ProjectShowcase
             key={project.title}
             project={project}
             index={index}
+            copy={copy}
           />
         ))}
       </section>

@@ -26,6 +26,7 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import { withBasePath } from "@/lib/site-path";
+import { useLanguage } from "@/lib/language-context";
 function SectionLabel({
   children,
   justify = "center",
@@ -117,14 +118,86 @@ const imageSocial = [
   },
 ];
 const row2Icons = [Camera, Brush, Box, Wand2, Figma, Framer, Type, Layers];
+const homeCopy = {
+  en: {
+    greeting: "Hi, I'm Nguyen Thi Ngoc Uyen!",
+    avatar: "Avatar",
+    aboutLabel: "About me",
+    aboutParagraphs: [
+      "I am a Fullstack Developer with over 3 years of experience in building modern web and mobile applications, specializing in React Native, Flutter, ReactJS, Next.js, Kotlin for Android, and Swift for iOS. I have strong hands-on experience in crafting responsive UI/UX, designing scalable backend APIs, integrating databases, and developing features related to payment systems and cryptocurrency/token swap platforms.",
+      "Throughout my professional experience, I have had the opportunity to participate in and develop a wide range of projects, including task management systems, cryptocurrency and digital economy platforms, hotel and restaurant management systems, customer loyalty applications, employee attendance and HR management software, supermarket sales management systems, and social networking applications focused on enhancing user engagement and experience.",
+    ],
+    timeline: "Timeline",
+    certifications: "Certifications",
+    dailySoftware: "Daily Software",
+    reachMe: "Reach Me",
+    phone01: "Phone 01",
+    phone02: "Phone 02",
+    downloadCv: "Download CV",
+    experiences: [
+      {
+        years: "2024-Now",
+        role: "Full-Stack Developer",
+        company: "Viet A Software Solutions Co., Ltd",
+      },
+      {
+        years: "2023-2024",
+        role: "Mobile Developer",
+        company: "WEALLNET CREATIVE AGENCY",
+      },
+      {
+        years: "2022-2023",
+        role: "Web Developer",
+        company: "BOOLFLY VIET NAM COMPANY",
+      },
+    ],
+  },
+  vi: {
+    greeting: "Xin chào, tôi là Nguyễn Thị Ngọc Uyên!",
+    avatar: "Ảnh đại diện",
+    aboutLabel: "Giới thiệu",
+    aboutParagraphs: [
+      "Tôi là Fullstack Developer với hơn 3 năm kinh nghiệm xây dựng ứng dụng web và mobile hiện đại, chuyên sâu React Native, Flutter, ReactJS, Next.js, Kotlin cho Android và Swift cho iOS. Tôi có kinh nghiệm thực chiến trong xây dựng UI/UX responsive, thiết kế backend API có khả năng mở rộng, tích hợp database và phát triển các tính năng liên quan đến thanh toán, cryptocurrency/token swap.",
+      "Trong quá trình làm việc, tôi đã tham gia và phát triển nhiều dự án như hệ thống quản lý công việc, nền tảng cryptocurrency và kinh tế số, hệ thống quản lý khách sạn - nhà hàng, ứng dụng tích điểm khách hàng, phần mềm chấm công và quản lý nhân sự, hệ thống bán hàng siêu thị, cùng các ứng dụng mạng xã hội tập trung nâng cao trải nghiệm và tương tác người dùng.",
+    ],
+    timeline: "Dòng thời gian",
+    certifications: "Chứng chỉ",
+    dailySoftware: "Công cụ hằng ngày",
+    reachMe: "Liên hệ",
+    phone01: "SĐT 01",
+    phone02: "SĐT 02",
+    downloadCv: "Tải CV",
+    experiences: [
+      {
+        years: "2024-Hiện tại",
+        role: "Full-Stack Developer",
+        company: "Công ty TNHH Giải pháp phần mềm Việt Á",
+      },
+      {
+        years: "2023-2024",
+        role: "Mobile Developer",
+        company: "WEALLNET CREATIVE AGENCY",
+      },
+      {
+        years: "2022-2023",
+        role: "Web Developer",
+        company: "BOOLFLY VIET NAM COMPANY",
+      },
+    ],
+  },
+};
+
 export default function PortfolioFeatures() {
+  const { language } = useLanguage();
+  const copy = homeCopy[language];
+
   return (
     <section className="min-h-screen lg:h-screen bg-[#0a0a0a] text-white px-4 sm:px-6 md:px-10 lg:px-14 py-6 sm:py-8 md:py-10 flex flex-col">
       {/* Header */}
       <header className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6 mb-6 sm:mb-8">
         <div className="max-w-3xl">
           <h1 className="text-[28px] sm:text-3xl md:text-4xl lg:text-[44px] leading-[1.15] font-normal tracking-tight mb-3">
-            {"Hi, I'm Nguyen Thi Ngoc Uyen!"}
+            {copy.greeting}
           </h1>
         </div>
       </header>
@@ -142,10 +215,10 @@ export default function PortfolioFeatures() {
             />
           </div>
 
-          {/* <div className="absolute inset-0 bg-black/40" /> */}
+            {/* <div className="absolute inset-0 bg-black/40" /> */}
           <div className="relative z-10 flex flex-col h-full p-5 md:p-6">
             <div className="pt-2">
-              <SectionLabel>Avatar</SectionLabel>
+              <SectionLabel>{copy.avatar}</SectionLabel>
             </div>
           </div>
         </div>
@@ -168,17 +241,15 @@ export default function PortfolioFeatures() {
       h-full
     "
           >
-            <SectionLabel justify="start">About me</SectionLabel>
-            <blockquote className="text-[13px] sm:text-[13.5px] leading-[1.6] text-white/85">
-              {
-                "I am a Fullstack Developer with over 3 years of experience in building modern web and mobile applications, specializing in React Native, Fullter, Reactjs,  Next.js, Kotlin for Android, and Swift for iOS. I have strong hands-on experience in crafting responsive UI/UX, designing scalable backend APIs, integrating databases, and developing features related to payment systems and cryptocurrency/token swap platforms."
-              }
-            </blockquote>
-            <blockquote className="text-[13px] sm:text-[13.5px] leading-[1.6] text-white/85">
-              {
-                "Throughout my professional experience, I have had the opportunity to participate in and develop a wide range of projects, including task management systems, cryptocurrency and digital economy platforms, hotel and restaurant management systems, customer loyalty applications, employee attendance and HR management software, supermarket sales management systems, and social networking applications focused on enhancing user engagement and experience."
-              }
-            </blockquote>
+            <SectionLabel justify="start">{copy.aboutLabel}</SectionLabel>
+            {copy.aboutParagraphs.map((paragraph) => (
+              <blockquote
+                key={paragraph}
+                className="text-[13px] sm:text-[13.5px] leading-[1.6] text-white/85"
+              >
+                {paragraph}
+              </blockquote>
+            ))}
           </div>
           {/* 10M+ */}
           <div className="relative rounded-2xl bg-black overflow-hidden flex flex-col  justify-center h-[190px]   flex-1">
@@ -196,25 +267,18 @@ export default function PortfolioFeatures() {
             </video>
             <div className="absolute inset-0 bg-black/30 " />
             <div className="relative  flex flex-col  gap-4  py-8 p-5 md:p-6">
-              <SectionLabel justify="start">Time line</SectionLabel>
+              <SectionLabel justify="start">{copy.timeline}</SectionLabel>
               <div className="mt-auto space-y-2">
-                <TimelineItem
-                  years="2024-Now"
-                  role="Full-Stack Developer"
-                  company="Công ty TNHH Giải pháp phần mềm Việt Á"
-                />
-                <TimelineItem
-                  years="2023-2024"
-                  role="Mobile Developer"
-                  company="WEALLNET CREATIVE AGENCY"
-                />
-                <TimelineItem
-                  years="2022-2023"
-                  role="Web Developer"
-                  company="BOOLFLY VIET NAM COMPANY"
-                />
+                {copy.experiences.map((experience) => (
+                  <TimelineItem
+                    key={`${experience.years}-${experience.company}`}
+                    years={experience.years}
+                    role={experience.role}
+                    company={experience.company}
+                  />
+                ))}
               </div>
-              <SectionLabel justify="start">Certifications</SectionLabel>
+              <SectionLabel justify="start">{copy.certifications}</SectionLabel>
               <div className="mt-auto space-y-2">
                 <span className="text-[13px] sm:text-[13.5px] leading-[1.6] text-white/85">
                   Toeic: 690
@@ -243,7 +307,7 @@ export default function PortfolioFeatures() {
             <div className="absolute inset-0 bg-black/50" />
             <div className="relative z-10 flex flex-col h-full p-5 md:p-6">
               <div className="pt-2">
-                <SectionLabel>Daily Software</SectionLabel>
+                <SectionLabel>{copy.dailySoftware}</SectionLabel>
               </div>
               <div className="mt-auto space-y-3 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
                 {/* Marquee Row 1 - Left */}
@@ -343,13 +407,17 @@ export default function PortfolioFeatures() {
           </div>
           {/* Reach Me */}
           <div className="noise-overlay rounded-2xl bg-[#324444] p-5 md:p-6 flex  justify-start flex-col gap-2 relative flex-1 ">
-            <SectionLabel justify="start">Reach Me</SectionLabel>
+            <SectionLabel justify="start">{copy.reachMe}</SectionLabel>
             <div className=" space-y-1">
               <p className="text-sm text-white/90">
                 Email: nguyenuyen352021@gmail.com
               </p>
-              <p className="text-sm text-white/70">Phone 01: 0399088051</p>
-              <p className="text-sm text-white/70">Phone 02: 0946961611</p>
+              <p className="text-sm text-white/70">
+                {copy.phone01}: 0399088051
+              </p>
+              <p className="text-sm text-white/70">
+                {copy.phone02}: 0946961611
+              </p>
             </div>
             {/* Social */}
             <div className="mt-8 flex items-center gap-4">
@@ -402,7 +470,7 @@ export default function PortfolioFeatures() {
               className="mt-6 flex w-full items-center justify-center gap-2 rounded-2xl border border-white/10bg-white/[0.03] py-3 text-smtransition-all duration-300hover:bg-white/[0.06]"
             >
               <Download className="h-4 w-4" />
-              Download CV
+              {copy.downloadCv}
             </a>
           </div>
         </div>

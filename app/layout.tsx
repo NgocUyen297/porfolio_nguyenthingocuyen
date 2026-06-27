@@ -4,6 +4,7 @@ import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import PortfolioNavbar from "@/components/nav/PortfolioNavbar";
 import { withBasePath } from "@/lib/site-path";
+import { LanguageProvider } from "@/lib/language-context";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
@@ -39,9 +40,11 @@ export default function RootLayout({
   return (
     <html lang="en" className="bg-[#0a0a0a]">
       <body className={`${inter.variable} font-sans antialiased`}>
-        <PortfolioNavbar />
-        {children}
-        {process.env.NODE_ENV === "production" && <Analytics />}
+        <LanguageProvider>
+          <PortfolioNavbar />
+          {children}
+          {process.env.NODE_ENV === "production" && <Analytics />}
+        </LanguageProvider>
       </body>
     </html>
   );

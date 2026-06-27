@@ -13,6 +13,7 @@ import {
   Wrench,
 } from "lucide-react";
 import { withBasePath } from "@/lib/site-path";
+import { Language, useLanguage } from "@/lib/language-context";
 
 type SkillGroup = {
   title: string;
@@ -21,70 +22,136 @@ type SkillGroup = {
   skills: string[];
 };
 
-const skillGroups: SkillGroup[] = [
-  {
-    title: "Mobile Development",
-    description:
-      "Production mobile apps for loyalty, booking, retail attendance, social networking, and digital services.",
-    icon: Smartphone,
-    skills: ["React Native", "Flutter", "Kotlin", "Swift"],
-  },
-  {
-    title: "Frontend",
-    description:
-      "Responsive web interfaces, admin dashboards, customer support portals, and product-facing screens.",
-    icon: Code2,
-    skills: ["ReactJS", "Next.js", "HTML5", "CSS3", "JavaScript ES6+"],
-  },
-  {
-    title: "Backend & API",
-    description:
-      "REST API integration, backend participation, server-side workflows, and business logic support.",
-    icon: ServerCog,
-    skills: ["C#", ".NET Framework", ".NET Core", "RESTful API"],
-  },
-  {
-    title: "Database",
-    description:
-      "Database-driven product features, reporting data, booking records, attendance history, and loyalty data.",
-    icon: Database,
-    skills: ["SQL Server", "MySQL", "Database Design", "Reporting Data"],
-  },
-  {
-    title: "Tools & Workflow",
-    description:
-      "Daily delivery tools for source control, API testing, mobile builds, debugging, and local environments.",
-    icon: Wrench,
-    skills: [
-      "Git",
-      "GitHub",
-      "GitLab",
-      "SVN",
-      "Postman",
-      "Jira",
-      "Docker",
-      "VS Code",
-      "Xcode",
-      "Android Studio",
-    ],
-  },
-  {
-    title: "Product Domains",
-    description:
-      "Hands-on project domains from your portfolio and professional work.",
-    icon: Blocks,
-    skills: [
-      "Loyalty Systems",
-      "Hotel Booking",
-      "Attendance Management",
-      "Retail Operations",
-      "Social Networking",
-      "E-commerce",
-      "Push Notifications",
-      "GPS Services",
-    ],
-  },
-];
+const skillGroupsByLanguage: Record<Language, SkillGroup[]> = {
+  en: [
+    {
+      title: "Mobile Development",
+      description:
+        "Production mobile apps for loyalty, booking, retail attendance, social networking, and digital services.",
+      icon: Smartphone,
+      skills: ["React Native", "Flutter", "Kotlin", "Swift"],
+    },
+    {
+      title: "Frontend",
+      description:
+        "Responsive web interfaces, admin dashboards, customer support portals, and product-facing screens.",
+      icon: Code2,
+      skills: ["ReactJS", "Next.js", "HTML5", "CSS3", "JavaScript ES6+"],
+    },
+    {
+      title: "Backend & API",
+      description:
+        "REST API integration, backend participation, server-side workflows, and business logic support.",
+      icon: ServerCog,
+      skills: ["C#", ".NET Framework", ".NET Core", "RESTful API"],
+    },
+    {
+      title: "Database",
+      description:
+        "Database-driven product features, reporting data, booking records, attendance history, and loyalty data.",
+      icon: Database,
+      skills: ["SQL Server", "MySQL", "Database Design", "Reporting Data"],
+    },
+    {
+      title: "Tools & Workflow",
+      description:
+        "Daily delivery tools for source control, API testing, mobile builds, debugging, and local environments.",
+      icon: Wrench,
+      skills: [
+        "Git",
+        "GitHub",
+        "GitLab",
+        "SVN",
+        "Postman",
+        "Jira",
+        "Docker",
+        "VS Code",
+        "Xcode",
+        "Android Studio",
+      ],
+    },
+    {
+      title: "Product Domains",
+      description:
+        "Hands-on project domains from your portfolio and professional work.",
+      icon: Blocks,
+      skills: [
+        "Loyalty Systems",
+        "Hotel Booking",
+        "Attendance Management",
+        "Retail Operations",
+        "Social Networking",
+        "E-commerce",
+        "Push Notifications",
+        "GPS Services",
+      ],
+    },
+  ],
+  vi: [
+    {
+      title: "Phát triển Mobile",
+      description:
+        "Ứng dụng mobile thực tế cho loyalty, booking, chấm công bán lẻ, mạng xã hội và dịch vụ số.",
+      icon: Smartphone,
+      skills: ["React Native", "Flutter", "Kotlin", "Swift"],
+    },
+    {
+      title: "Frontend",
+      description:
+        "Giao diện web responsive, dashboard quản trị, cổng hỗ trợ khách hàng và màn hình sản phẩm.",
+      icon: Code2,
+      skills: ["ReactJS", "Next.js", "HTML5", "CSS3", "JavaScript ES6+"],
+    },
+    {
+      title: "Backend & API",
+      description:
+        "Tích hợp REST API, tham gia backend, xử lý workflow server-side và hỗ trợ business logic.",
+      icon: ServerCog,
+      skills: ["C#", ".NET Framework", ".NET Core", "RESTful API"],
+    },
+    {
+      title: "Cơ sở dữ liệu",
+      description:
+        "Tính năng sản phẩm dựa trên dữ liệu, báo cáo, booking records, lịch sử chấm công và dữ liệu loyalty.",
+      icon: Database,
+      skills: ["SQL Server", "MySQL", "Database Design", "Reporting Data"],
+    },
+    {
+      title: "Công cụ & Quy trình",
+      description:
+        "Công cụ hằng ngày cho quản lý mã nguồn, test API, build mobile, debug và môi trường local.",
+      icon: Wrench,
+      skills: [
+        "Git",
+        "GitHub",
+        "GitLab",
+        "SVN",
+        "Postman",
+        "Jira",
+        "Docker",
+        "VS Code",
+        "Xcode",
+        "Android Studio",
+      ],
+    },
+    {
+      title: "Lĩnh vực sản phẩm",
+      description:
+        "Các domain tôi đã trực tiếp tham gia trong portfolio và công việc thực tế.",
+      icon: Blocks,
+      skills: [
+        "Loyalty Systems",
+        "Hotel Booking",
+        "Attendance Management",
+        "Retail Operations",
+        "Social Networking",
+        "E-commerce",
+        "Push Notifications",
+        "GPS Services",
+      ],
+    },
+  ],
+};
 
 const techLogos = [
   { name: "React Native", src: "/react-native-logo.png" },
@@ -102,14 +169,34 @@ const techLogos = [
   { name: "Xcode", src: "/xcode-logo.png" },
 ];
 
-const strengths = [
-  "Mobile UI implementation",
-  "REST API integration",
-  "Backend collaboration",
-  "Database-aware feature design",
-  "Admin portal workflows",
-  "Performance optimization",
-];
+const skillsCopy = {
+  en: {
+    title: "Building secure, reliable, and scalable mobile applications.",
+    intro:
+      "My core strength is connecting polished mobile interfaces with reliable APIs, databases, push notifications, GPS services, and admin workflows used by internal teams.",
+    strengths: [
+      "Mobile UI implementation",
+      "REST API integration",
+      "Backend collaboration",
+      "Database-aware feature design",
+      "Admin portal workflows",
+      "Performance optimization",
+    ],
+  },
+  vi: {
+    title: "Xây dựng ứng dụng mobile bảo mật, ổn định và dễ mở rộng.",
+    intro:
+      "Điểm mạnh của tôi là kết nối giao diện mobile chỉn chu với API, database, push notification, GPS service và workflow quản trị dành cho đội ngũ vận hành.",
+    strengths: [
+      "Triển khai UI mobile",
+      "Tích hợp REST API",
+      "Phối hợp backend",
+      "Thiết kế tính năng gắn với database",
+      "Workflow cổng quản trị",
+      "Tối ưu hiệu năng",
+    ],
+  },
+};
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
@@ -158,23 +245,25 @@ function SkillCard({ group, index }: { group: SkillGroup; index: number }) {
 }
 
 export default function SkillsPage() {
+  const { language } = useLanguage();
+  const copy = skillsCopy[language];
+  const skillGroups = skillGroupsByLanguage[language];
+
   return (
     <main className="min-h-screen bg-[#0a0a0a] text-white">
       <section className="mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 lg:px-10">
         <div className="grid gap-10 py-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
           <div className="space-y-5">
             <h1 className="max-w-4xl text-[38px] font-normal leading-tight tracking-tight text-white sm:text-6xl">
-              Building secure, reliable, and scalable mobile applications.
+              {copy.title}
             </h1>
           </div>
           <div className="space-y-5">
             <p className="text-[15px] leading-7 text-white/66">
-              My core strength is connecting polished mobile interfaces with
-              reliable APIs, databases, push notifications, GPS services, and
-              admin workflows used by internal teams.
+              {copy.intro}
             </p>
             <div className="grid gap-3 sm:grid-cols-2">
-              {strengths.map((strength) => (
+              {copy.strengths.map((strength) => (
                 <div
                   key={strength}
                   className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.03] p-3 text-sm text-white/70"

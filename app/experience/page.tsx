@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { withBasePath } from "@/lib/site-path";
+import { useLanguage } from "@/lib/language-context";
 
 type Experience = {
   period: string;
@@ -175,11 +176,137 @@ const experiences: Experience[] = [
   },
 ];
 
-const stats = [
-  { value: "3+", label: "Years Experience" },
-  { value: "10+", label: "Real Projects" },
-  { value: "8+", label: "Clients & Partners" },
+const experiencesEn: Experience[] = [
+  {
+    ...experiences[0],
+    summary:
+      "Responsible for researching, building, and maintaining cross-platform mobile applications and web administration systems for Retail, Hospitality, and Loyalty Systems. Managed the product lifecycle from database design and API development to app optimization for stores.",
+    highlights: [
+      <>
+        Built and maintained cross-platform mobile applications with{" "}
+        <span className="text-white font-medium">React Native</span>; directly
+        handled releases, release-cycle management, and store optimization on{" "}
+        <span className="text-white font-medium">App Store & Google Play</span>.
+      </>,
+      <>
+        Developed custom{" "}
+        <span className="text-white font-medium">
+          Native Modules (Swift / Kotlin)
+        </span>{" "}
+        to connect platform-specific capabilities; implemented polished UI
+        motion and animation from <span className="text-white font-medium">Figma</span>{" "}
+        designs.
+      </>,
+      <>
+        Designed <span className="text-white font-medium">SQL Server</span>{" "}
+        database architecture; developed reliable backend APIs with{" "}
+        <span className="text-white font-medium">.NET Framework</span> and
+        operational admin portals with{" "}
+        <span className="text-white font-medium">React.js / Next.js</span>.
+      </>,
+      <>
+        Integrated real-world infrastructure solutions: secure{" "}
+        <span className="text-white font-medium">VNPAY</span> payments,
+        automated notifications via{" "}
+        <span className="text-white font-medium">OneSignal</span>, and
+        real-time attendance with{" "}
+        <span className="text-white font-medium">
+          GPS / Geofencing / Vision Camera
+        </span>
+        .
+      </>,
+    ],
+  },
+  {
+    ...experiences[1],
+    summary:
+      "Contributed to a Vietnam-based multi-service Super App combining social networking, digital entertainment, and e-commerce flows, with focus on large multimedia delivery and smooth real-time data handling.",
+    highlights: [
+      <>
+        Developed, maintained, and improved core features of the{" "}
+        <span className="text-white font-medium">WEALLNET</span> social super
+        app using <span className="text-white font-medium">Flutter</span>.
+      </>,
+      <>
+        Designed and managed{" "}
+        <span className="text-white font-medium">SQL Server</span> databases,
+        backend services, and APIs with a mix of{" "}
+        <span className="text-white font-medium">.NET Framework</span> and{" "}
+        <span className="text-white font-medium">Golang</span>.
+      </>,
+      <>
+        Improved application architecture through state management with{" "}
+        <span className="text-white font-medium">MobX</span> and caching with{" "}
+        <span className="text-white font-medium">Redis</span> to increase
+        system responsiveness.
+      </>,
+      <>
+        Built real-time chat flows and automated push notifications integrated
+        through{" "}
+        <span className="text-white font-medium">
+          Firebase Cloud Messaging (FCM)
+        </span>
+        .
+      </>,
+    ],
+  },
+  {
+    ...experiences[2],
+    summary:
+      "Focused on developing and customizing features for large e-commerce platforms, gaining hands-on experience with enterprise Big Data workflows and responsive interfaces optimized for conversion.",
+    highlights: [
+      <>
+        Built, customized, and maintained e-commerce website interfaces using{" "}
+        <span className="text-white font-medium">
+          HTML5, CSS3, JavaScript (ES6+)
+        </span>{" "}
+        and <span className="text-white font-medium">Magento Theme</span>{" "}
+        structures.
+      </>,
+      <>
+        Optimized database performance, imported, and safely synchronized more
+        than{" "}
+        <span className="text-white font-medium">500,000 data records</span>{" "}
+        including customers and orders while preserving data integrity.
+      </>,
+      <>
+        Used Agile/Scrum workflows with Git-based source control, Postman API
+        testing, and cross-functional project coordination.
+      </>,
+    ],
+  },
 ];
+
+const stats = [
+  { value: "3+", label: { en: "Years Experience", vi: "Năm kinh nghiệm" } },
+  { value: "10+", label: { en: "Real Projects", vi: "Dự án thực tế" } },
+  { value: "8+", label: { en: "Clients & Partners", vi: "Khách hàng & đối tác" } },
+];
+
+const experienceCopy = {
+  en: {
+    hero:
+      "Architecting high-performance mobile products for fintech, retail, and loyalty systems.",
+    intro:
+      "Software engineer focused on cross-platform optimization and strong Fullstack Engineering capability. I work with React Native, Flutter, Swift, Kotlin, and .NET, with experience integrating advanced payment solutions and secure application design.",
+    fullStackCore: "Full-Stack Core",
+    coreSpeciality: "Core Speciality",
+    technologies: "Technologies Deployed",
+    deliverables: "Key Deliverables & Products",
+    downloadCv: "Download Complete CV",
+  },
+  vi: {
+    hero:
+      "Thiết kế các sản phẩm mobile hiệu năng cao cho fintech, retail và loyalty systems.",
+    intro:
+      "Kỹ sư phát triển phần mềm chuyên sâu vào tối ưu đa nền tảng, kết hợp thành thạo năng lực Fullstack Engineering. Sở hữu nền tảng công nghệ gồm React Native, Flutter, Swift, Kotlin, .NET cùng kinh nghiệm tích hợp thanh toán và thiết kế ứng dụng bảo mật.",
+    fullStackCore: "Full-Stack Core",
+    coreSpeciality: "Chuyên môn chính",
+    technologies: "Công nghệ sử dụng",
+    deliverables: "Sản phẩm bàn giao",
+    downloadCv: "Tải CV đầy đủ",
+  },
+};
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
@@ -195,9 +322,11 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
 function ExperienceCard({
   experience,
   index,
+  copy,
 }: {
   experience: Experience;
   index: number;
+  copy: (typeof experienceCopy)["en"];
 }) {
   // Xác định icon điều hướng trực quan tương ứng với vai trò của từng thẻ
   const getCardIcon = (role: string) => {
@@ -248,8 +377,8 @@ function ExperienceCard({
             {getCardIcon(experience.role)}
             <span>
               {experience.role.includes("Full-stack")
-                ? "Full-Stack Core"
-                : "Core Speciality"}
+                ? copy.fullStackCore
+                : copy.coreSpeciality}
             </span>
           </div>
           <h2 className="text-xl font-bold leading-tight text-white sm:text-2xl tracking-tight">
@@ -278,7 +407,7 @@ function ExperienceCard({
         {/* Tags Công nghệ */}
         <div className="space-y-2">
           <p className="text-[10px] font-bold tracking-widest text-white/30 uppercase">
-            Technologies Deployed
+            {copy.technologies}
           </p>
           <div className="flex flex-wrap gap-2">
             {experience.stack.map((tech) => (
@@ -295,7 +424,7 @@ function ExperienceCard({
         {/* Tags Sản phẩm thực tế bàn giao */}
         <div className="space-y-2 pt-1">
           <p className="text-[10px] font-bold tracking-widest text-white/30 uppercase">
-            Key Deliverables & Products
+            {copy.deliverables}
           </p>
           <div className="flex flex-wrap gap-2">
             {experience.projects.map((project) => (
@@ -314,6 +443,10 @@ function ExperienceCard({
 }
 
 export default function ExperiencePage() {
+  const { language } = useLanguage();
+  const copy = experienceCopy[language];
+  const localizedExperiences = language === "vi" ? experiences : experiencesEn;
+
   return (
     <main className="min-h-screen bg-[#0a0a0a] text-white overflow-x-hidden antialiased">
       <section className="mx-auto w-full max-w-7xl px-4 py-12 sm:px-6 lg:px-10">
@@ -322,31 +455,20 @@ export default function ExperiencePage() {
           <div className="space-y-4">
             {/* <SectionLabel>Professional Journey</SectionLabel> */}
             <h1 className="max-w-xl text-[32px] font-bold leading-[1.15] tracking-tight text-white sm:text-5xl lg:text-5xl font-inter">
-              Architecting high-performance mobile products for fintech, retail,
-              and loyalty systems.
+              {copy.hero}
             </h1>
           </div>
 
           <div className="space-y-6">
             <p className="text-sm sm:text-[15px] leading-7 text-white/60 text-justify">
-              Kỹ sư phát triển phần mềm chuyên sâu vào mảng tối ưu đa nền tảng
-              kết hợp thành thạo năng lực xử lý hệ thống{" "}
-              <span className="text-white font-medium">
-                Fullstack Engineering
-              </span>
-              . Sở hữu nền tảng công nghệ đa dạng bao gồm{" "}
-              <span className="text-white font-medium">
-                React Native, Flutter, Swift, Kotlin, .NET
-              </span>
-              , cùng khả năng tích hợp giải pháp nâng cao từ các cổng thanh toán
-              quốc tế và thiết kế bảo mật ứng dụng toàn diện.
+              {copy.intro}
             </p>
 
             {/* Khối Grid số liệu thống kê */}
             <div className="grid grid-cols-3 overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02] shadow-xl">
               {stats.map((stat, index) => (
                 <div
-                  key={stat.label}
+                  key={stat.label.en}
                   className={`p-4 sm:p-5 ${
                     index !== stats.length - 1 ? "border-r border-white/10" : ""
                   }`}
@@ -355,7 +477,7 @@ export default function ExperiencePage() {
                     {stat.value}
                   </p>
                   <p className="mt-1 text-[10px] sm:text-xs tracking-wider font-medium uppercase text-white/40">
-                    {stat.label}
+                    {stat.label[language]}
                   </p>
                 </div>
               ))}
@@ -369,7 +491,7 @@ export default function ExperiencePage() {
                 className="inline-flex items-center gap-2 rounded-full border border-emerald-400/20 bg-emerald-400/10 px-5 py-2.5 text-xs sm:text-sm font-medium text-emerald-200 transition-all duration-200 hover:bg-emerald-400/20 shadow-md shadow-emerald-500/5"
               >
                 <Download className="h-4 w-4" strokeWidth={2} />
-                Download Complete CV
+                {copy.downloadCv}
               </a>
             </div>
           </div>
@@ -377,11 +499,12 @@ export default function ExperiencePage() {
 
         {/* Khối Danh sách các Thẻ Kinh nghiệm làm việc chi tiết */}
         <div className="mt-10 space-y-6">
-          {experiences.map((experience, index) => (
+          {localizedExperiences.map((experience, index) => (
             <ExperienceCard
               key={experience.company}
               experience={experience}
               index={index}
+              copy={copy}
             />
           ))}
         </div>

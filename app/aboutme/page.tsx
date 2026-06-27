@@ -10,8 +10,112 @@ import {
   Milestone,
   ArrowUpRight,
 } from "lucide-react";
+import { useLanguage } from "@/lib/language-context";
+
+const aboutCopy = {
+  en: {
+    roleLine1: "FullStack",
+    roleLine2: "Developer",
+    slogan: '"Build in silence, let success make the noise."',
+    stats: ["Experiences", "Project Done", "Clients"],
+    connect: "Connect",
+    toeicLabel: "TOEIC SCORE",
+    toeicValue: "690 Certificate",
+    university: "HO CHI MINH CITY OPEN UNIVERSITY",
+    major: "Information technology",
+    paragraphs: [
+      <>
+        Hi there! I'm a{" "}
+        <span className="text-white font-semibold">Fullstack Developer</span>{" "}
+        specializing in{" "}
+        <span className="text-white font-semibold">
+          mobile application development
+        </span>
+        , driven by the passion to turn complex backend logic into seamless,
+        high-performance mobile experiences. With strong expertise in{" "}
+        <span className="text-white font-medium underline decoration-white/30 underline-offset-4">
+          React Native, Flutter, Next.js, .NET
+        </span>
+        , and <span className="text-white font-semibold">SQL Server</span>, I
+        focus on building scalable applications powered by real-time systems,
+        modular architecture, and custom native integrations (Swift/Kotlin).
+      </>,
+      <>
+        Over the past <span className="text-white font-semibold">3+ years</span>
+        , I’ve had the privilege of engineering real-world solutions across{" "}
+        <span className="text-white font-semibold">
+          FinTech (cryptocurrency), loyalty systems, hospitality, workforce
+          management, retail
+        </span>
+        , and <span className="text-white font-semibold">social platforms</span>
+        . I don't just write code; I build tools that solve actual business
+        challenges and elevate user engagement.
+      </>,
+      <>
+        Communication is just as important to me as clean code. With a{" "}
+        <span className="text-white font-semibold">TOEIC score of 690</span>, I
+        comfortably navigate daily English-working environments, dissect complex
+        technical documentation, and collaborate smoothly in cross-functional or
+        international teams. When I'm not coding, you'll probably find me
+        exploring the latest mobile UI/UX trends, optimizing my dev setup, or
+        deep-diving into new tech stacks.
+      </>,
+    ],
+  },
+  vi: {
+    roleLine1: "FullStack",
+    roleLine2: "Developer",
+    slogan: '"Lặng lẽ xây dựng, để thành công tự lên tiếng."',
+    stats: ["Kinh nghiệm", "Dự án", "Khách hàng"],
+    connect: "Liên hệ",
+    toeicLabel: "ĐIỂM TOEIC",
+    toeicValue: "Chứng chỉ 690",
+    university: "ĐẠI HỌC MỞ TP. HỒ CHÍ MINH",
+    major: "Công nghệ thông tin",
+    paragraphs: [
+      <>
+        Xin chào! Tôi là{" "}
+        <span className="text-white font-semibold">Fullstack Developer</span>{" "}
+        chuyên về{" "}
+        <span className="text-white font-semibold">
+          phát triển ứng dụng mobile
+        </span>
+        , với niềm yêu thích biến các xử lý backend phức tạp thành trải nghiệm
+        mobile mượt mà, hiệu năng cao. Với kinh nghiệm ở{" "}
+        <span className="text-white font-medium underline decoration-white/30 underline-offset-4">
+          React Native, Flutter, Next.js, .NET
+        </span>{" "}
+        và <span className="text-white font-semibold">SQL Server</span>, tôi
+        tập trung xây dựng ứng dụng có khả năng mở rộng, dựa trên hệ thống thời
+        gian thực, kiến trúc module và tích hợp native tùy chỉnh (Swift/Kotlin).
+      </>,
+      <>
+        Trong hơn <span className="text-white font-semibold">3 năm</span>, tôi
+        đã tham gia xây dựng các giải pháp thực tế trong{" "}
+        <span className="text-white font-semibold">
+          FinTech (cryptocurrency), loyalty systems, hospitality, quản lý nhân
+          sự, retail
+        </span>{" "}
+        và <span className="text-white font-semibold">social platforms</span>.
+        Tôi không chỉ viết code; tôi xây dựng công cụ giải quyết bài toán kinh
+        doanh thật và nâng cao tương tác người dùng.
+      </>,
+      <>
+        Giao tiếp quan trọng với tôi không kém gì code sạch. Với{" "}
+        <span className="text-white font-semibold">TOEIC 690</span>, tôi có thể
+        làm việc trong môi trường sử dụng tiếng Anh hằng ngày, đọc hiểu tài liệu
+        kỹ thuật phức tạp và phối hợp tốt với team đa chức năng hoặc quốc tế.
+        Ngoài thời gian coding, tôi thường tìm hiểu xu hướng UI/UX mobile, tối
+        ưu môi trường dev và khám phá các tech stack mới.
+      </>,
+    ],
+  },
+};
 
 export default function AboutMe() {
+  const { language } = useLanguage();
+  const copy = aboutCopy[language];
+
   return (
     <>
       {/* Tích hợp trực tiếp Fonts & CSS Animations theo đúng yêu cầu */}
@@ -118,13 +222,13 @@ export default function AboutMe() {
 
               {/* Tiêu đề chính lớn */}
               <h1 className="animate-fade-up-delay-1 font-podium text-white uppercase leading-[0.92] tracking-tight text-[clamp(2.5rem,7vw,6.5rem)] flex flex-col">
-                <span>FullStack</span>
-                <span>Developer</span>
+                <span>{copy.roleLine1}</span>
+                <span>{copy.roleLine2}</span>
               </h1>
 
               {/* Câu Slogan in nghiêng đặt gọn gàng */}
               <p className="animate-fade-up-delay-2 mt-4 text-white/60 text-sm sm:text-base italic">
-                "Build in silence, let success make the noise."
+                {copy.slogan}
               </p>
 
               {/* Chỉ số Thống kê */}
@@ -134,7 +238,7 @@ export default function AboutMe() {
                     3+
                   </div>
                   <div className="text-white/40 text-[10px] tracking-widest uppercase mt-1 font-semibold">
-                    Experiences
+                    {copy.stats[0]}
                   </div>
                 </div>
                 <div>
@@ -142,7 +246,7 @@ export default function AboutMe() {
                     10+
                   </div>
                   <div className="text-white/40 text-[10px] tracking-widest uppercase mt-1 font-semibold">
-                    Project Done
+                    {copy.stats[1]}
                   </div>
                 </div>
                 <div>
@@ -150,7 +254,7 @@ export default function AboutMe() {
                     8+
                   </div>
                   <div className="text-white/40 text-[10px] tracking-widest uppercase mt-1 font-semibold">
-                    Clients
+                    {copy.stats[2]}
                   </div>
                 </div>
               </div>
@@ -170,7 +274,7 @@ export default function AboutMe() {
                 </div>
                 <div className="text-center sm:text-left space-y-1.5">
                   <h3 className="text-sm uppercase tracking-wider font-bold text-white/40">
-                    Connect
+                    {copy.connect}
                   </h3>
                   <div className="flex flex-wrap justify-center sm:justify-start gap-x-4 gap-y-1.5 text-xs text-white/70">
                     <a
@@ -205,10 +309,10 @@ export default function AboutMe() {
                   <Award className="w-5 h-5 text-white/60 shrink-0" />
                   <div>
                     <div className="text-[10px] text-white/40 uppercase font-bold tracking-wider">
-                      TOEIC SCORE
+                      {copy.toeicLabel}
                     </div>
                     <div className="text-sm font-bold text-white tracking-wide">
-                      690 Certificate
+                      {copy.toeicValue}
                     </div>
                   </div>
                 </div>
@@ -216,10 +320,10 @@ export default function AboutMe() {
                   <Milestone className="w-5 h-5 text-white/60 shrink-0" />
                   <div>
                     <div className="text-[10px] text-white/40 uppercase font-bold tracking-wider">
-                      HO CHI MINH CITY OPEN UNIVERSITY
+                      {copy.university}
                     </div>
                     <div className="text-sm font-bold text-white tracking-wide">
-                      Information technology
+                      {copy.major}
                     </div>
                   </div>
                 </div>
@@ -227,57 +331,9 @@ export default function AboutMe() {
 
               {/* 3. Toàn bộ các đoạn Text Mô tả với các Keyword được làm nổi bật */}
               <div className="space-y-4 text-xs sm:text-sm text-white/70 leading-relaxed text-justify pr-1">
-                <p>
-                  Hi there! I'm a{" "}
-                  <span className="text-white font-semibold">
-                    Fullstack Developer
-                  </span>{" "}
-                  specializing in{" "}
-                  <span className="text-white font-semibold">
-                    mobile application development
-                  </span>
-                  , driven by the passion to turn complex backend logic into
-                  seamless, high-performance mobile experiences. With strong
-                  expertise in{" "}
-                  <span className="text-white font-medium underline decoration-white/30 underline-offset-4">
-                    React Native, Flutter, Next.js, .NET
-                  </span>
-                  , and{" "}
-                  <span className="text-white font-semibold">SQL Server</span>,
-                  I focus on building scalable applications powered by real-time
-                  systems, modular architecture, and custom native integrations
-                  (Swift/Kotlin).
-                </p>
-
-                <p>
-                  Over the past{" "}
-                  <span className="text-white font-semibold">3+ years</span>,
-                  I’ve had the privilege of engineering real-world solutions
-                  across{" "}
-                  <span className="text-white font-semibold">
-                    FinTech (cryptocurrency), loyalty systems, hospitality,
-                    workforce management, retail
-                  </span>
-                  , and{" "}
-                  <span className="text-white font-semibold">
-                    social platforms
-                  </span>
-                  . I don't just write code; I build tools that solve actual
-                  business challenges and elevate user engagement.
-                </p>
-
-                <p>
-                  Communication is just as important to me as clean code. With a{" "}
-                  <span className="text-white font-semibold">
-                    TOEIC score of 690
-                  </span>
-                  , I comfortably navigate daily English-working environments,
-                  dissect complex technical documentation, and collaborate
-                  smoothly in cross-functional or international teams. When I'm
-                  not coding, you'll probably find me exploring the latest
-                  mobile UI/UX trends, optimizing my dev setup, or deep-diving
-                  into new tech stacks.
-                </p>
+                {copy.paragraphs.map((paragraph, index) => (
+                  <p key={index}>{paragraph}</p>
+                ))}
               </div>
             </div>
           </main>
