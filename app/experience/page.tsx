@@ -306,8 +306,8 @@ const experienceCopy = {
     coreSpeciality: "Chuyên môn chính",
     technologies: "Công nghệ sử dụng",
     deliverables: "Sản phẩm bàn giao",
-    downloadCvEngLish: "Download English CV",
-    downloadCvVietNamese: "Download VietNamese CV",
+    downloadCvEnglish: "Download CV (English)",
+    downloadCvVietnamese: "Download CV (Vietnamese)",
   },
 };
 

@@ -133,8 +133,8 @@ const homeCopy = {
     reachMe: "Reach Me",
     phone01: "Phone 01",
     phone02: "Phone 02",
-    downloadCvEngLish: "Download English CV",
-    downloadCvVietNamese: "Download VietNamese CV",
+    downloadCvEnglish: "Download CV (English)",
+    downloadCvVietnamese: "Download CV (Vietnamese)",
     experiences: [
       {
         years: "2024-Now",
