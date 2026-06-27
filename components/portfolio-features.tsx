@@ -167,8 +167,8 @@ const homeCopy = {
     reachMe: "Liên hệ",
     phone01: "SĐT 01",
     phone02: "SĐT 02",
-    downloadCvEngLish: "Tải CV tiếng anh",
-    downloadCvVietNamese: "Tải CV tiếng việt",
+    downloadCvEnglish: "Tải CV tiếng anh",
+    downloadCvVietnamese: "Tải CV tiếng việt",
     experiences: [
       {
         years: "2024-Hiện tại",
@@ -472,7 +472,7 @@ export default function PortfolioFeatures() {
               className="mt-6 flex w-full items-center justify-center gap-2 rounded-2xl border border-white/10bg-white/[0.03] py-3 text-smtransition-all duration-300hover:bg-white/[0.06]"
             >
               <Download className="h-4 w-4" />
-              {copy.downloadCvEngLish}
+              {copy.downloadCvEnglish}
             </a>
             <a
               href={withBasePath("/NguyenThiNgocUyenCV_TiengViet.pdf")}
@@ -480,7 +480,7 @@ export default function PortfolioFeatures() {
               className="mt-6 flex w-full items-center justify-center gap-2 rounded-2xl border border-white/10bg-white/[0.03] py-3 text-smtransition-all duration-300hover:bg-white/[0.06]"
             >
               <Download className="h-4 w-4" />
-              {copy.downloadCvVietNamese}
+              {copy.downloadCvVietnamese}
             </a>
           </div>
         </div>
