@@ -133,7 +133,8 @@ const homeCopy = {
     reachMe: "Reach Me",
     phone01: "Phone 01",
     phone02: "Phone 02",
-    downloadCv: "Download CV",
+    downloadCvEngLish: "Download English CV",
+    downloadCvVietNamese: "Download VietNamese CV",
     experiences: [
       {
         years: "2024-Now",
@@ -166,7 +167,8 @@ const homeCopy = {
     reachMe: "Liên hệ",
     phone01: "SĐT 01",
     phone02: "SĐT 02",
-    downloadCv: "Tải CV",
+    downloadCvEngLish: "Tải CV tiếng anh",
+    downloadCvVietNamese: "Tải CV tiếng việt",
     experiences: [
       {
         years: "2024-Hiện tại",
@@ -215,7 +217,7 @@ export default function PortfolioFeatures() {
             />
           </div>
 
-            {/* <div className="absolute inset-0 bg-black/40" /> */}
+          {/* <div className="absolute inset-0 bg-black/40" /> */}
           <div className="relative z-10 flex flex-col h-full p-5 md:p-6">
             <div className="pt-2">
               <SectionLabel>{copy.avatar}</SectionLabel>
@@ -465,12 +467,20 @@ export default function PortfolioFeatures() {
               ))}
             </div>
             <a
-              href={withBasePath("/NGUYEN-THI-NGOC-UYEN-CV.pdf")}
+              href={withBasePath("/NguyenThiNgocUyen_CV_English.pdf")}
               download
               className="mt-6 flex w-full items-center justify-center gap-2 rounded-2xl border border-white/10bg-white/[0.03] py-3 text-smtransition-all duration-300hover:bg-white/[0.06]"
             >
               <Download className="h-4 w-4" />
-              {copy.downloadCv}
+              {copy.downloadCvEngLish}
+            </a>
+            <a
+              href={withBasePath("/NguyenThiNgocUyenCV_TiengViet.pdf")}
+              download
+              className="mt-6 flex w-full items-center justify-center gap-2 rounded-2xl border border-white/10bg-white/[0.03] py-3 text-smtransition-all duration-300hover:bg-white/[0.06]"
+            >
+              <Download className="h-4 w-4" />
+              {copy.downloadCvVietNamese}
             </a>
           </div>
         </div>

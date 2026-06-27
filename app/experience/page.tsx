@@ -194,8 +194,8 @@ const experiencesEn: Experience[] = [
           Native Modules (Swift / Kotlin)
         </span>{" "}
         to connect platform-specific capabilities; implemented polished UI
-        motion and animation from <span className="text-white font-medium">Figma</span>{" "}
-        designs.
+        motion and animation from{" "}
+        <span className="text-white font-medium">Figma</span> designs.
       </>,
       <>
         Designed <span className="text-white font-medium">SQL Server</span>{" "}
@@ -208,8 +208,8 @@ const experiencesEn: Experience[] = [
         Integrated real-world infrastructure solutions: secure{" "}
         <span className="text-white font-medium">VNPAY</span> payments,
         automated notifications via{" "}
-        <span className="text-white font-medium">OneSignal</span>, and
-        real-time attendance with{" "}
+        <span className="text-white font-medium">OneSignal</span>, and real-time
+        attendance with{" "}
         <span className="text-white font-medium">
           GPS / Geofencing / Vision Camera
         </span>
@@ -237,8 +237,8 @@ const experiencesEn: Experience[] = [
       <>
         Improved application architecture through state management with{" "}
         <span className="text-white font-medium">MobX</span> and caching with{" "}
-        <span className="text-white font-medium">Redis</span> to increase
-        system responsiveness.
+        <span className="text-white font-medium">Redis</span> to increase system
+        responsiveness.
       </>,
       <>
         Built real-time chat flows and automated push notifications integrated
@@ -280,31 +280,34 @@ const experiencesEn: Experience[] = [
 const stats = [
   { value: "3+", label: { en: "Years Experience", vi: "Năm kinh nghiệm" } },
   { value: "10+", label: { en: "Real Projects", vi: "Dự án thực tế" } },
-  { value: "8+", label: { en: "Clients & Partners", vi: "Khách hàng & đối tác" } },
+  {
+    value: "8+",
+    label: { en: "Clients & Partners", vi: "Khách hàng & đối tác" },
+  },
 ];
 
 const experienceCopy = {
   en: {
-    hero:
-      "Architecting high-performance mobile products for fintech, retail, and loyalty systems.",
+    hero: "Architecting high-performance mobile products for fintech, retail, and loyalty systems.",
     intro:
       "Software engineer focused on cross-platform optimization and strong Fullstack Engineering capability. I work with React Native, Flutter, Swift, Kotlin, and .NET, with experience integrating advanced payment solutions and secure application design.",
     fullStackCore: "Full-Stack Core",
     coreSpeciality: "Core Speciality",
     technologies: "Technologies Deployed",
     deliverables: "Key Deliverables & Products",
-    downloadCv: "Download Complete CV",
+    downloadCvEngLish: "Download English CV",
+    downloadCvVietNamese: "Download VietNamese CV",
   },
   vi: {
-    hero:
-      "Thiết kế các sản phẩm mobile hiệu năng cao cho fintech, retail và loyalty systems.",
+    hero: "Thiết kế các sản phẩm mobile hiệu năng cao cho fintech, retail và loyalty systems.",
     intro:
       "Kỹ sư phát triển phần mềm chuyên sâu vào tối ưu đa nền tảng, kết hợp thành thạo năng lực Fullstack Engineering. Sở hữu nền tảng công nghệ gồm React Native, Flutter, Swift, Kotlin, .NET cùng kinh nghiệm tích hợp thanh toán và thiết kế ứng dụng bảo mật.",
     fullStackCore: "Full-Stack Core",
     coreSpeciality: "Chuyên môn chính",
     technologies: "Công nghệ sử dụng",
     deliverables: "Sản phẩm bàn giao",
-    downloadCv: "Tải CV đầy đủ",
+    downloadCvEngLish: "Download English CV",
+    downloadCvVietNamese: "Download VietNamese CV",
   },
 };
 
@@ -486,12 +489,20 @@ export default function ExperiencePage() {
             {/* Các nút hành động */}
             <div className="flex flex-wrap gap-3">
               <a
-                href={withBasePath("/NGUYEN-THI-NGOC-UYEN-CV.pdf")}
+                href={withBasePath("/NguyenThiNgocUyen_CV_English.pdf")}
                 download
                 className="inline-flex items-center gap-2 rounded-full border border-emerald-400/20 bg-emerald-400/10 px-5 py-2.5 text-xs sm:text-sm font-medium text-emerald-200 transition-all duration-200 hover:bg-emerald-400/20 shadow-md shadow-emerald-500/5"
               >
                 <Download className="h-4 w-4" strokeWidth={2} />
-                {copy.downloadCv}
+                {copy.downloadCvEngLish}
+              </a>
+              <a
+                href={withBasePath("/NguyenThiNgocUyenCV_TiengViet.pdf")}
+                download
+                className="inline-flex items-center gap-2 rounded-full border border-emerald-400/20 bg-emerald-400/10 px-5 py-2.5 text-xs sm:text-sm font-medium text-emerald-200 transition-all duration-200 hover:bg-emerald-400/20 shadow-md shadow-emerald-500/5"
+              >
+                <Download className="h-4 w-4" strokeWidth={2} />
+                {copy.downloadCvVietNamese}
               </a>
             </div>
           </div>
