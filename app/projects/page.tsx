@@ -186,6 +186,7 @@ const projects: Project[] = [
       "Flutter",
       ".NET Web API",
       "Redis",
+      "Firebase",
       "RESTful API",
       "E-commerce",
     ],
@@ -279,8 +280,7 @@ const projectsVi: Project[] = [
 
 const projectsCopy = {
   en: {
-    hero:
-      "Mobile and web products built across retail, hospitality, loyalty, and social platforms.",
+    hero: "Mobile and web products built across retail, hospitality, loyalty, and social platforms.",
     featuredProject: "Featured Project",
     myRole: "My Role",
     mainFeatures: "Main Features",
@@ -288,8 +288,7 @@ const projectsCopy = {
     webAdmin: "Web Admin",
   },
   vi: {
-    hero:
-      "Các sản phẩm mobile và web đã xây dựng trong retail, hospitality, loyalty và social platforms.",
+    hero: "Các sản phẩm mobile và web đã xây dựng trong retail, hospitality, loyalty và social platforms.",
     featuredProject: "Dự án nổi bật",
     myRole: "Vai trò của tôi",
     mainFeatures: "Tính năng chính",
@@ -566,9 +565,7 @@ function CustomerLogos({
       {customers && (
         <div>
           <div className="flex flex-wrap items-center gap-3">
-            <p className="text-sm font-medium text-white/78">
-              {clientsLabel}
-            </p>
+            <p className="text-sm font-medium text-white/78">{clientsLabel}</p>
             {customers.map((customer) => (
               <div
                 key={customer.name}
